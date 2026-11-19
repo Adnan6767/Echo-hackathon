@@ -1,0 +1,6 @@
+{
+  "name": "ECHO — Voice to Action",
+  "description": "Voice-first business management platform converting everyday WhatsApp-style voice notes into structured orders, customer udhaar ledgers, and daily summaries for Indian kirana stores.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

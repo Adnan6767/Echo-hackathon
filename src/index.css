@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-echo-bg: #101010;
+  --color-echo-surface: #1B1B1B;
+  --color-echo-elevated: #242424;
+  --color-echo-orange: #FF7139;
+  --color-echo-cream: #F5F0E8;
+  --color-echo-muted: #929292;
+  --color-echo-success: #40C98A;
+  --color-echo-warning: #E8B75B;
+  --color-echo-error: #E56D65;
+}
+
+@layer base {
+  html {
+    background-color: #101010;
+    color: #F5F0E8;
+    font-family: var(--font-sans);
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: #101010;
+    color: #F5F0E8;
+    overflow-x: hidden;
+    letter-spacing: 0.005em;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid #FF7139;
+    outline-offset: 2px;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Subtle custom scrollbars for dark editorial surfaces */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2C2C2C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F3F;
+}
+
+/* Waveform bar subtle keyframes for fallback / audio playback */
+@keyframes echoWavePulse {
+  0%, 100% {
+    transform: scaleY(0.32);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.echo-wave-bar {
+  transform-origin: center;
+  animation: echoWavePulse var(--wave-dur, 1.5s) ease-in-out infinite;
+  animation-delay: var(--wave-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .echo-wave-bar {
+    animation: none !important;
+    transform: scaleY(0.65);
+  }
+}
